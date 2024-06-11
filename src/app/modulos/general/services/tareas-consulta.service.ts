@@ -25,4 +25,62 @@ export class TareasConsultaService {
       })
     );
   }
+
+
+  getTareaId(id: number): Observable<any> {
+    return this.http.get<any>(`${this.urlAPI}/${id}`).pipe(
+      tap((response) => {
+        if (response.ok) {
+        } else {
+        }
+      }),
+      catchError((err: HttpErrorResponse) => {
+        console.error('Error:', err);
+        return [];
+      })
+    );
+  }
+
+  crearTarea(data: any): Observable<any> {
+    return this.http.post<any>(`${this.urlAPI}`, data).pipe(
+      tap((response) => {
+        if (response.ok) {
+        } else {
+        }
+      }),
+      catchError((err: HttpErrorResponse) => {
+        console.error('Error:', err);
+        return [];
+      })
+    );
+  }
+
+ actualizarTarea(id: number, data: any): Observable<any> {
+    return this.http.put<any>(`${this.urlAPI}/${id}`, data).pipe(
+      tap((response) => {
+        if (response.ok) {
+        } else {
+        }
+      }),
+      catchError((err: HttpErrorResponse) => {
+        console.error('Error:', err);
+        return [];
+      })
+    );
+  }
+
+
+  EliminarPost(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.urlAPI}/${id}`).pipe(
+      tap((response) => {
+        if (response.ok) {
+        } else {
+        }
+      }),
+      catchError((err: HttpErrorResponse) => {
+        console.error('Error:', err);
+        return [];
+      }) 
+    );
+  }
 }
