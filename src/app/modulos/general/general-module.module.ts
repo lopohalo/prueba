@@ -10,6 +10,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { FormTaskComponent } from './components/form-task/form-tareas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TableTareasComponent } from './components/table-tareas/table-tareas.component';
 
 export const modals = [];
@@ -22,9 +27,14 @@ export const modals = [];
     GeneralModuleRoutingModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatCheckboxModule,
     MatCardModule,
   ],
   exports: [],

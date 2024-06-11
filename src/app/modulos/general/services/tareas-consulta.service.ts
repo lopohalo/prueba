@@ -2,7 +2,8 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { environment } from 'src/app/enviroments/enviroment';
+import { environment } from 'src/enviroments/enviroment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -71,16 +72,14 @@ export class TareasConsultaService {
 
 
   EliminarPost(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.urlAPI}/${id}`).pipe(
+    return this.http.delete<any>(`${this.urlAPI}/${id}`) .pipe(
       tap((response) => {
-        if (response.ok) {
-        } else {
-        }
+        if (response.ok) return response;
       }),
-      catchError((err: HttpErrorResponse) => {
-        console.error('Error:', err);
+      catchError((err) => {
+        if (err) return err;
         return [];
-      }) 
+      })
     );
-  }
+}
 }

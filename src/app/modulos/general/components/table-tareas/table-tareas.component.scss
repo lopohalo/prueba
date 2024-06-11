@@ -1,0 +1,105 @@
+.table {
+  background-color: #fff;
+  height: 100%;
+
+  .header > h3 {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .header {
+    display: flex;
+    padding: 0 0.5em 0 1em;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    flex-direction: row;
+    justify-content: space-between;
+
+    .seleccionados {
+      color: rgba(0, 0, 0, 0.6);
+      font-weight: normal;
+    }
+
+    .icono {
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .mensaje {
+      color: rgba(0, 0, 0, 0.8);
+      padding-left: 1em;
+      align-self: flex-start;
+    }
+
+    .panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .panel > * {
+      flex: 1;
+    }
+  }
+
+  .cargando {
+    margin: 20px auto;
+  }
+
+  .celdaCheck {
+    overflow: visible;
+  }
+
+  .celdaCheck > mat-checkbox,
+  .celdaTot > mat-icon {
+    left: -10px;
+    position: relative;
+  }
+
+  .celdaTot {
+    width: 25px;
+    flex: initial;
+    justify-content: center;
+  }
+
+  .mat-row:hover {
+    background: rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+  }
+
+  .zebra:nth-child(odd) {
+    background: #666666;
+  }
+}
+
+.sombraTableHeader {
+  box-shadow: 0 3px 3px -3px gray;
+
+  .mat-header-cell {
+    color: white;
+  }
+}
+
+mat-header-cell,
+mat-cell,
+mat-footer-cell {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0 10px;
+  border-left: 1px solid transparent;
+}
+
+mat-header-cell:first-child,
+mat-cell:first-child {
+  padding-right: 2px;
+}
+
+mat-footer-cell:first-child {
+  padding-right: 0px;
+}
+
+mat-cell {
+  word-break: break-word;
+  text-align: left;
+}
+
+.table .mat-paginator-range-label {
+  margin: 0 24px !important;
+}
