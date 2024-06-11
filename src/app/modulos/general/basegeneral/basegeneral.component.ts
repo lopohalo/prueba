@@ -1,5 +1,5 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { TareasConsultaService } from '../services/tareas-consulta.service';
 
 
 @Component({
@@ -8,11 +8,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./basegeneral.component.scss']
 })
 export class BasegeneralComponent implements OnInit {
-       constructor() {
-        
+    constructor(private TareasConsultaService: TareasConsultaService) {
     }
+
     ngOnInit(): void {
+        this.consultarTareas();
     }
 
-
+    consultarTareas() {
+      this.TareasConsultaService.getTareas().subscribe((response) => {
+        console.log(response);
+      })
+    }
 }
