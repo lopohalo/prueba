@@ -1,22 +1,21 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { IngresosComponent } from './component/ingresos/ingresos.component';
-import { GastosComponent } from './component/gastos/gastos.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
-
-
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { Error404Component } from "./pages/error404/error404.component";
 
 const routes: Routes = [
-    {path: "ingresos", component: IngresosComponent},
-    {path: "gastos", component: GastosComponent},
-    {path: "", component: NavbarComponent},
-
-
-]
+  // Rutas de los modulos
+  {
+    path: "",
+    loadChildren: () =>
+      import("./modulos/general/general-module.module").then(
+        (m) => m.GeneralModuleModule
+      ),
+  },
+  { path: "**", component: Error404Component },
+];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
