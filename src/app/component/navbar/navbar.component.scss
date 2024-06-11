@@ -1,0 +1,26 @@
+/* Estilos para centrar las cartas en el medio de la página */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Esto asegura que las cartas estén centradas verticalmente en la página */
+}
+
+// .card {
+//   margin: 10px; /* Espacio entre las cartas */
+// }
+
+/* Estilos adicionales según tus necesidades */
+/* Por ejemplo, puedes ajustar el color de fondo de la página o de las cartas, cambiar los colores de texto, etc. */
+
+body {
+  background-color: #f0f0f0; /* Color de fondo de la página */
+}
+
+.card-title {
+  color: #333; /* Color del título de la carta */
+}
+
+.card-text {
+  color: #666; /* Color del texto de la carta */
+}
