@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="title" required>
+  </mat-form-field>
+<mat-form-field>
+    <mat-label>Estado</mat-label>
+    <mat-select formControlName="status" required>
+        <mat-option *ngFor="let option of options" [value]="option.value">
+            {{ option.name }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Enviar</button>
+</form>
