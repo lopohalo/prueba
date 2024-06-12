@@ -1,9 +1,12 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/enviroments/enviroment';
-
 
 @Injectable({
   providedIn: 'root',
@@ -15,21 +18,6 @@ export class TareasConsultaService {
 
   getTareas(): Observable<any> {
     return this.http.get<any>(`${this.urlAPI}`).pipe(
-      tap((response) => {
-        if (response.ok) {
-        } else {
-        }
-      }),
-      catchError((err: HttpErrorResponse) => {
-        console.error('Error:', err);
-        return [];
-      })
-    );
-  }
-
-
-  getTareaId(id: number): Observable<any> {
-    return this.http.get<any>(`${this.urlAPI}/${id}`).pipe(
       tap((response) => {
         if (response.ok) {
         } else {
@@ -56,8 +44,8 @@ export class TareasConsultaService {
     );
   }
 
- actualizarTarea(id: number, data: any): Observable<any> {
-  console.log(id)
+  actualizarTarea(id: number, data: any): Observable<any> {
+    console.log(id);
     return this.http.put<any>(`${this.urlAPI}/${id}`, data).pipe(
       tap((response) => {
         if (response.ok) {
@@ -71,9 +59,8 @@ export class TareasConsultaService {
     );
   }
 
-
   EliminarPost(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.urlAPI}/${id}`) .pipe(
+    return this.http.delete<any>(`${this.urlAPI}/${id}`).pipe(
       tap((response) => {
         if (response.ok) return response;
       }),
@@ -82,5 +69,5 @@ export class TareasConsultaService {
         return [];
       })
     );
-}
+  }
 }

@@ -22,7 +22,6 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value.username, this.loginForm.value.password)
         .subscribe(
           (res:any) => {
-            // Redirect to 'tareas' route
             this.router.navigate(['/tareas']);
           },
           (err:any) => {
