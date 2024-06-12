@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "herramientaExcel": {
+    "pruebaTecnicaVanti": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/herramienta-excel",
+            "outputPath": "dist/pruebaTecnicaVanti",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "herramientaExcel:build:production"
+              "browserTarget": "pruebaTecnicaVanti:build:production"
             },
             "development": {
-              "browserTarget": "herramientaExcel:build:development"
+              "browserTarget": "pruebaTecnicaVanti:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "herramientaExcel:build"
+            "browserTarget": "pruebaTecnicaVanti:build"
           }
         },
         "test": {
