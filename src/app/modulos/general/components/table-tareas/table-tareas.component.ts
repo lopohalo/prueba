@@ -14,6 +14,7 @@ export class TableTareasComponent implements OnInit {
   @Input() accionTareas: EventEmitter<void> = new EventEmitter<void>();
   @Output() eliminarTarea = new EventEmitter<any>();
   @Output() agregarTarea = new EventEmitter<any>();
+  @Output() editarTarea = new EventEmitter<any>();
   displayedColumns: string[] = ['userId', 'id', 'title', 'completed'];
   currentPage = 1;
   pageSize = 5;
@@ -34,7 +35,6 @@ export class TableTareasComponent implements OnInit {
       this.dataTareas[index].selected = false;
     }
     this.dataTareasPaginated = this.dataTareas.slice(0, this.pageSize);
-    console.log(this.dataTareasPaginated);
     this.onPageChange({
       pageIndex: this.currentPage - 1,
       pageSize: this.pageSize,
@@ -81,7 +81,13 @@ export class TableTareasComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.agregarTarea.emit(result.value);
+      if(event === 'Editar'){
+        this.seleccionados[0].title = result.value.title;
+        this.seleccionados[0].completed = result.value.status;
+        this.editarTarea.emit(this.seleccionados[0]);
+      } else{
+        this.agregarTarea.emit(result.value);
+      }
     });
   }
   onPageChange(event: any) {

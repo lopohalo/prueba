@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,16 +8,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class FormTaskComponent implements OnInit {
   @Output() form: EventEmitter<any> = new EventEmitter();
+  @Input() data: any;
   formData: FormGroup | any;
   options = [
-    { name: 'Completado', value: false },
-    { name: 'Por hacer', value: true }
+    { name: 'Completado', value: true },
+    { name: 'Por hacer', value: false }
   ];
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.buildFormulario();
+    if(this.data.titulo === 'Editar'){
+      this.buildFormulario();
+      this.setFormulario(this.data);
+    }
   }
 
   buildFormulario() {
@@ -26,5 +30,10 @@ export class FormTaskComponent implements OnInit {
       status: ['', Validators.required],
     });
     this.form.emit(this.formData);
+  }
+
+  setFormulario(data: any) {
+    this.formData.controls.title.setValue(data.seleccionados[0].title);
+    this.formData.controls.status.setValue(data.seleccionados[0].completed);
   }
 }

@@ -1,74 +1,4 @@
-.table {
-  background-color: #fff;
-  height: 100%;
 
-  .header > h3 {
-    color: rgba(0, 0, 0, 0.7);
-  }
-
-  .header {
-    display: flex;
-    padding: 0 0.5em 0 1em;
-    align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    flex-direction: row;
-    justify-content: space-between;
-
-    .seleccionados {
-      color: rgba(0, 0, 0, 0.6);
-      font-weight: normal;
-    }
-
-    .icono {
-      color: rgba(0, 0, 0, 0.7);
-    }
-
-    .mensaje {
-      color: rgba(0, 0, 0, 0.8);
-      padding-left: 1em;
-      align-self: flex-start;
-    }
-
-    .panel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .panel > * {
-      flex: 1;
-    }
-  }
-
-  .cargando {
-    margin: 20px auto;
-  }
-
-  .celdaCheck {
-    overflow: visible;
-  }
-
-  .celdaCheck > mat-checkbox,
-  .celdaTot > mat-icon {
-    left: -10px;
-    position: relative;
-  }
-
-  .celdaTot {
-    width: 25px;
-    flex: initial;
-    justify-content: center;
-  }
-
-  .mat-row:hover {
-    background: rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-  }
-
-  .zebra:nth-child(odd) {
-    background: #666666;
-  }
-}
 
 .my-custom-dialog {
     background-color: #f5f5f5;
@@ -77,8 +7,15 @@
     padding: 16px;
     border-radius: 10px;
   }
-
-
-.table .mat-paginator-range-label {
-  margin: 0 24px !important;
-}
+  table {
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }

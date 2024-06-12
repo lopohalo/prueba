@@ -57,6 +57,7 @@ export class TareasConsultaService {
   }
 
  actualizarTarea(id: number, data: any): Observable<any> {
+  console.log(id)
     return this.http.put<any>(`${this.urlAPI}/${id}`, data).pipe(
       tap((response) => {
         if (response.ok) {

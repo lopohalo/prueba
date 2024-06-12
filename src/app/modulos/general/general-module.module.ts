@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GeneralModuleRoutingModule } from './general-module-routing.module';
-import { BasegeneralComponent } from './basegeneral/basegeneral.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,12 +17,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TableTareasComponent } from './components/table-tareas/table-tareas.component';
 import { ModalTablaComponent } from './components/modales/modal-tabla/modal-tabla.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BasegeneralComponent } from './pages/basegeneral/basegeneral.component';
+import { LoginComponent } from './pages/basegeneral/login/login.component';
 
 export const modals = [];
 
 @NgModule({
   declarations: [
     BasegeneralComponent,
+    LoginComponent,
     FormTaskComponent,
     TableTareasComponent,
     ModalTablaComponent,

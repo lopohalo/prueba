@@ -36,7 +36,7 @@
   (matSortChange)="onSort($event)"
 >
   <ng-container matColumnDef="userId">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>seleccionar</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Seleccionar</th>
     <td mat-cell *matCellDef="let row">
       <mat-checkbox [checked]="row.selected" (change)="seleccionadosTabla(row)">
       </mat-checkbox>
@@ -55,7 +55,16 @@
 
   <ng-container matColumnDef="completed">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Completado</th>
-    <td mat-cell *matCellDef="let row">{{ row.completed ? "Sí" : "No" }}</td>
+    <td mat-cell *matCellDef="let row">
+      <mat-icon>
+        <ng-container *ngIf="row.completed; else notCompleted">
+          <mat-icon>done</mat-icon>
+        </ng-container>
+        <ng-template #notCompleted>
+          <mat-icon>clear</mat-icon>
+        </ng-template>
+      </mat-icon>
+    </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

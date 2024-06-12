@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { TareasConsultaService } from '../services/tareas-consulta.service';
 import Swal from 'sweetalert2';
-import { Tarea } from '../interfas/tarea-modelo';
+import { TareasConsultaService } from '../../services/tareas-consulta.service';
 
 @Component({
   selector: 'app-basegeneral',
@@ -49,6 +48,22 @@ export class BasegeneralComponent implements OnInit {
     });
     
     this.dataTareas.push(response);
+    this.accionTareas.emit();
+  });
+  }
+  editarTarea(tarea: any) {
+    let param = {
+    userId: 1,
+    title: tarea.title,
+    completed: tarea.status,
+  };
+  this.TareasConsultaService.actualizarTarea(tarea.id,param).subscribe((response: any) => {
+    Swal.fire({
+      title: 'Editada!',
+      text: 'La tarea se ha editado con éxito.',
+      icon: 'success',
+    });
+   this.dataTareas.filter((x:any) => x.id == tarea.id)[0] = param
     this.accionTareas.emit();
   });
   }
