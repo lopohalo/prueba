@@ -5,13 +5,13 @@ GUIA DE INSTALACION
 SE SOLICITA CLONAR EL REPOSITORIO
 Abre una terminal o línea de comandos.
 Navega hasta la ubicación donde deseas descargar el repositorio. Puedes usar el comando cd para cambiar de directorio.
-git clone <url>
+git clone <url> 
 
 seguido de esto 
 npm install --force
 
-cuando se hayan completado la instalacion de dependencias 
-ng serve
+cuando se hayan completado la instalacion de dependencias ejecutas : ng serve !
+
 
 DESCRIPCION
 
