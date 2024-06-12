@@ -19,6 +19,10 @@ import { ModalTablaComponent } from './components/modales/modal-tabla/modal-tabl
 import { MatDialogModule } from '@angular/material/dialog';
 import { BasegeneralComponent } from './pages/basegeneral/basegeneral.component';
 import { LoginComponent } from './pages/basegeneral/login/login.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MenuComponent } from './components/menu-desplegable/menu-desplegable.component';
 
 export const modals = [];
 
@@ -29,6 +33,7 @@ export const modals = [];
     FormTaskComponent,
     TableTareasComponent,
     ModalTablaComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +51,9 @@ export const modals = [];
     MatDialogModule,
     MatCheckboxModule,
     MatCardModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule 
   ],
   exports: [],
   entryComponents: [],

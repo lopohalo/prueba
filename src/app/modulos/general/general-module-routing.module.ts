@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { BasegeneralComponent } from "./pages/basegeneral/basegeneral.component";
 import { LoginComponent } from "./pages/basegeneral/login/login.component";
+import { AuthGuard } from "src/app/auth/auth.guard";
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
   {
     path: "tareas",
     component: BasegeneralComponent,
+    canActivate: [AuthGuard], 
     children: [],
   },
 ];
