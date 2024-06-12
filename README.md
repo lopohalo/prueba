@@ -1,6 +1,21 @@
 # pruebaTecnicaVanti
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+
+GUIA DE INSTALACION
+SE SOLICITA CLONAR EL REPOSITORIO
+Abre una terminal o línea de comandos.
+Navega hasta la ubicación donde deseas descargar el repositorio. Puedes usar el comando cd para cambiar de directorio.
+git clone <url>
+
+seguido de esto 
+npm install --force
+
+cuando se hayan completado la instalacion de dependencias 
+ng serve
+
+DESCRIPCION
+
+El proyecto se hizo en ANGULAR, con librerias como (ANGULAR MATERIAL, BOOTSTRAP, SWEET ALERT)  tener en cuenta que no utilice componentes diferentes a los de angular material, CONFIGURACION mantiene una verificacion de rutas para que los usuarios no puedan acceder a rutas sin logearse) cuenta con una tabla con diferentes acciones (CRUD) con paginado, organizacion, el proyecto se hizo con la intencion de que se viera como se utilizaba el lenguaje, para esto se creo un componente 404 NOT FOUND y se creo un modulo aparte en lazado al routing general del proyecto, se manejaron cosas interesantes como RUTAS, PASO DE INPUTS OUTPUTS, INFERFACES, SERVICES, separacion de pages y componentes, y archivos apartes para el manejo de las enviroment, un gran conocimiento en la parte de configuracion de angular y el manejo de consumo de cosas necesarias por parte de las importaciones.
 
 ## Development server
 
