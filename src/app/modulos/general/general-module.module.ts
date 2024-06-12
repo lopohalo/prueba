@@ -33,7 +33,7 @@ export const modals = [];
     FormTaskComponent,
     TableTareasComponent,
     ModalTablaComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     CommonModule,
@@ -53,7 +53,7 @@ export const modals = [];
     MatCardModule,
     MatMenuModule,
     MatSidenavModule,
-    MatListModule 
+    MatListModule,
   ],
   exports: [],
   entryComponents: [],
