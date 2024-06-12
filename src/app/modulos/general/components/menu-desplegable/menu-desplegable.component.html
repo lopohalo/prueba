@@ -1,0 +1,18 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="over" [opened]="opened">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of menuItems" class="mt-5">
+        {{ item }}
+      </mat-list-item>
+    </mat-nav-list>
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

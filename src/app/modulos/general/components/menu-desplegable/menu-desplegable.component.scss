@@ -1,0 +1,35 @@
+mat-sidenav-container {
+  height: 100vh;
+  background-color: white;
+}
+
+mat-sidenav {
+  width: 100%; /* ancho del menú lateral */
+  height: 100vh;
+  color: none;
+  padding: 20px;
+}
+
+mat-sidenav-content {
+  padding: 20px;
+}
+
+mat-sidenav[opened] {
+  transform: translateX(0);
+}
+
+mat-sidenav[closed] {
+  transform: translateX(-250px);
+}
+
+button[mat-icon-button] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+button[mat-icon-button]:first-child {
+  right: auto;
+  left: 10px;
+}

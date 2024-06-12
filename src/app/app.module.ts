@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Error404Component } from './pages/error404/error404.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [AppComponent, Error404Component],
@@ -14,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
