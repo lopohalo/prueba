@@ -21,6 +21,8 @@ export class FormTaskComponent implements OnInit {
     if(this.data.titulo === 'Editar'){
       this.buildFormulario();
       this.setFormulario(this.data);
+    } else{
+      this.buildFormulario();
     }
   }
 
