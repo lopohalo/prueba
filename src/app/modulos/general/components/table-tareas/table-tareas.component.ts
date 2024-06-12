@@ -24,7 +24,6 @@ export class TableTareasComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.consultarTabla();
     this.accionTareas.subscribe(() => {
       this.consultarTabla();
     });

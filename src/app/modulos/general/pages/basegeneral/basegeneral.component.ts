@@ -24,19 +24,24 @@ export class BasegeneralComponent implements OnInit {
   consultarTareas() {
     this.TareasConsultaService.getTareas().subscribe((response) => {
       this.dataTareas = response;
+      setTimeout(() => {
+      this.accionTareas.emit();
+    }, 0);
     });
   }
   eliminarTarea(tarea: any) {
     this.TareasConsultaService.EliminarPost(tarea[0].id).subscribe(() => {
+      this.dataTareas = this.dataTareas.filter(
+        (x: any) => x.id !== tarea[0].id
+      );
       Swal.fire({
         title: 'eliminado!',
         text: 'La tarea se ha eliminado con exito.',
         icon: 'success',
       });
-      this.dataTareas = this.dataTareas.filter(
-        (x: any) => x.id !== tarea[0].id
-      );
-      this.accionTareas.emit();
+      setTimeout(() => {
+        this.accionTareas.emit();
+      }, 0);
     });
   }
   agregarTarea(tarea: any) {
@@ -53,7 +58,9 @@ export class BasegeneralComponent implements OnInit {
       });
 
       this.dataTareas.push(response);
-      this.accionTareas.emit();
+      setTimeout(() => {
+        this.accionTareas.emit();
+      }, 0);
     });
   }
   cerrarSesion() {
@@ -74,7 +81,9 @@ export class BasegeneralComponent implements OnInit {
           icon: 'success',
         });
         this.dataTareas.filter((x: any) => x.id == tarea.id)[0] = param;
-        this.accionTareas.emit();
+        setTimeout(() => {
+          this.accionTareas.emit();
+        }, 0);
       }
     );
   }
