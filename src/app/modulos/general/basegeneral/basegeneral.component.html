@@ -1,7 +1,9 @@
-<app-form-tareas></app-form-tareas>
+<div class="container">
 <app-table-tareas
   *ngIf="dataTareas"
   [dataTareas]="dataTareas"
-  [accionEliminarTareas]="accionEliminarTareas"
+  [accionTareas]="accionTareas"
   (eliminarTarea)="eliminarTarea($event)"
+  (agregarTarea)="agregarTarea($event)"
 ></app-table-tareas>
+</div>

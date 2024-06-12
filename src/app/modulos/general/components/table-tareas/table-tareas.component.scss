@@ -70,35 +70,14 @@
   }
 }
 
-.sombraTableHeader {
-  box-shadow: 0 3px 3px -3px gray;
-
-  .mat-header-cell {
-    color: white;
+.my-custom-dialog {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    border-radius: 10px;
   }
-}
 
-mat-header-cell,
-mat-cell,
-mat-footer-cell {
-  border-right: 1px solid rgba(0, 0, 0, 0.12);
-  padding: 0 10px;
-  border-left: 1px solid transparent;
-}
-
-mat-header-cell:first-child,
-mat-cell:first-child {
-  padding-right: 2px;
-}
-
-mat-footer-cell:first-child {
-  padding-right: 0px;
-}
-
-mat-cell {
-  word-break: break-word;
-  text-align: left;
-}
 
 .table .mat-paginator-range-label {
   margin: 0 24px !important;

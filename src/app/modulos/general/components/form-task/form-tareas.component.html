@@ -1,14 +1,17 @@
-<mat-card>
-<form [formGroup]="form">
+<mat-card class="p-5 text-center">
+<form [formGroup]="formData">
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-md-6 col-12 mb-5">
         <mat-form-field>
           <mat-label>Título</mat-label>
           <input matInput formControlName="title" required />
+          <mat-error *ngIf="formData.get('title').hasError('required')">
+            Error: Título es requerido.
+          </mat-error>
         </mat-form-field>
       </div>
-      <div class="col-12">
+      <div class="col-md-6 col-12 mb-5">
         <mat-form-field>
           <mat-label>Estado</mat-label>
           <mat-select formControlName="status" required>
@@ -16,17 +19,12 @@
               {{ option.name }}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="formData.get('status').hasError('required')">
+            Error: Estado es requerido.
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
   </div>
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit"
-    [disabled]="form.invalid"
-  >
-    Enviar
-  </button>
 </form>
 </mat-card>

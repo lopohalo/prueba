@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Tarea } from '../../interfas/tarea-modelo';
 import Swal from 'sweetalert2';
+import { ModalTablaComponent } from '../modales/modal-tabla/modal-tabla.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-table-tareas',
@@ -10,19 +11,20 @@ import Swal from 'sweetalert2';
 })
 export class TableTareasComponent implements OnInit {
   @Input() dataTareas: Tarea[] = [];
-  @Input() accionEliminarTareas: EventEmitter<void> = new EventEmitter<void>();
+  @Input() accionTareas: EventEmitter<void> = new EventEmitter<void>();
   @Output() eliminarTarea = new EventEmitter<any>();
+  @Output() agregarTarea = new EventEmitter<any>();
   displayedColumns: string[] = ['userId', 'id', 'title', 'completed'];
   currentPage = 1;
   pageSize = 5;
   seleccionados: Tarea[] = [];
   dataTareasPaginated: any = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
     this.consultarTabla();
-    this.accionEliminarTareas.subscribe(() => {
+    this.accionTareas.subscribe(() => {
       this.consultarTabla();
     });
   }
@@ -41,10 +43,17 @@ export class TableTareasComponent implements OnInit {
 
   seleccionadosTabla(row: Tarea) {
     this.dataTareas.forEach((tarea: Tarea) => {
-      tarea.selected = false;
+      if (row.id !== tarea.id) {
+        tarea.selected = false;
+      }
     });
-    row.selected = true;
-    this.seleccionados.push(row);
+    row.selected = !row.selected;
+
+    if (row.selected) {
+      this.seleccionados = [row];
+    } else {
+      this.seleccionados = [];
+    }
   }
 
   editTask(task: Tarea): void {}
@@ -66,15 +75,14 @@ export class TableTareasComponent implements OnInit {
   }
 
   openDialog(event: string) {
-    // const dialogRef = this.dialog.open(ModalContentComponent, {
-    //   width: '250px',
-    //   data: { event: 'Información adicional' }
-    // });
+    const dialogRef = this.dialog.open(ModalTablaComponent, {
+      panelClass: 'my-custom-dialog',
+      data: { seleccionados: this.seleccionados, titulo: event },
+    });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('Modal cerrado');
-    // });
-
+    dialogRef.afterClosed().subscribe((result) => {
+      this.agregarTarea.emit(result.value);
+    });
   }
   onPageChange(event: any) {
     this.currentPage = event.pageIndex + 1;

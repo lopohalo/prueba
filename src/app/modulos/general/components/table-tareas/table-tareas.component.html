@@ -1,17 +1,29 @@
-<div
-  style="min-width: 130px; text-align: right"
-  *ngIf="seleccionados.length > 0"
->
-  <button mat-icon-button (click)="openDialog('nuevo')" matTooltip="agregar">
+<div style="min-width: 130px; text-align: right">
+  <button
+    *ngIf="seleccionados.length === 0"
+    mat-icon-button
+    (click)="openDialog('Crear')"
+    matTooltip="agregar"
+  >
     <mat-icon class="icono">add</mat-icon>
   </button>
   <ng-container>
-    <button mat-icon-button (click)="openDialog('editar')" matTooltip="editar">
+    <button
+      *ngIf="seleccionados.length > 0"
+      mat-icon-button
+      (click)="openDialog('Editar')"
+      matTooltip="editar"
+    >
       <mat-icon class="icono">edit</mat-icon>
     </button>
   </ng-container>
   <ng-container>
-    <button mat-icon-button matTooltip="eliminar" (click)="eliminarSeleccion()">
+    <button
+      *ngIf="seleccionados.length > 0"
+      mat-icon-button
+      matTooltip="eliminar"
+      (click)="eliminarSeleccion()"
+    >
       <mat-icon class="icono">delete</mat-icon>
     </button>
   </ng-container>

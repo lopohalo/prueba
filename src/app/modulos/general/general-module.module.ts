@@ -16,11 +16,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TableTareasComponent } from './components/table-tareas/table-tareas.component';
+import { ModalTablaComponent } from './components/modales/modal-tabla/modal-tabla.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export const modals = [];
 
 @NgModule({
-  declarations: [BasegeneralComponent, FormTaskComponent, TableTareasComponent],
+  declarations: [
+    BasegeneralComponent,
+    FormTaskComponent,
+    TableTareasComponent,
+    ModalTablaComponent,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -34,6 +41,7 @@ export const modals = [];
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatDialogModule,
     MatCheckboxModule,
     MatCardModule,
   ],

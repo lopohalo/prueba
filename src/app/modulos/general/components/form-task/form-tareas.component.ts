@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,11 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-tareas.component.scss'],
 })
 export class FormTaskComponent implements OnInit {
-  form: FormGroup = new FormGroup({});
+  @Output() form: EventEmitter<any> = new EventEmitter();
+  formData: FormGroup | any;
   options = [
-    { name: 'En progreso', value: 'progress' },
-    { name: 'Completado', value: 'completed' },
-    { name: 'Por hacer', value: 'todo' }
+    { name: 'Completado', value: false },
+    { name: 'Por hacer', value: true }
   ];
 
   constructor(private fb: FormBuilder) {}
@@ -21,9 +21,10 @@ export class FormTaskComponent implements OnInit {
   }
 
   buildFormulario() {
-    this.form = this.fb.group({
+    this.formData = this.fb.group({
       title: ['', Validators.required],
       status: ['', Validators.required],
     });
+    this.form.emit(this.formData);
   }
 }
