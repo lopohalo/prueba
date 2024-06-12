@@ -2,15 +2,31 @@
   <div class="row">
     <div class="col-2"><app-menu></app-menu></div>
     <div class="col-10 justify-content-start p-5">
-      <h2>Listado de tareas</h2>
-      <app-table-tareas
-        *ngIf="dataTareas"
-        [dataTareas]="dataTareas"
-        [accionTareas]="accionTareas"
-        (eliminarTarea)="eliminarTarea($event)"
-        (agregarTarea)="agregarTarea($event)"
-        (editarTarea)="editarTarea($event)"
-      ></app-table-tareas>
+      <div class="row">
+        <div class="col-6">
+          <h2>Listado de tareas</h2>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-5 text-end">
+              <h5 class="text-end justify-content-end">Hola {{username}}</h5>
+            </div>
+            <div class="col-5 text-start">
+              <button mat-raised-button color="primary" (click)="cerrarSesion()">Cerrar sesión</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <app-table-tareas
+            *ngIf="dataTareas"
+            [dataTareas]="dataTareas"
+            [accionTareas]="accionTareas"
+            (eliminarTarea)="eliminarTarea($event)"
+            (agregarTarea)="agregarTarea($event)"
+            (editarTarea)="editarTarea($event)"
+          ></app-table-tareas>
+        </div>
+      </div>
     </div>
   </div>
 </div>
