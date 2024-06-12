@@ -5,7 +5,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 @Component({
   selector: 'app-modal-tabla',
   templateUrl: './modal-tabla.component.html',
-  styleUrls: ['./modal-tabla.component.scss'],
+  styleUrls: [],
   providers: [],
 })
 export class ModalTablaComponent {

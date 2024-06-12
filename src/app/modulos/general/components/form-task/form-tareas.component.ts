@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-form-tareas',
   templateUrl: './form-tareas.component.html',
-  styleUrls: ['./form-tareas.component.scss'],
+  styleUrls: [],
 })
 export class FormTaskComponent implements OnInit {
   @Output() form: EventEmitter<any> = new EventEmitter();
